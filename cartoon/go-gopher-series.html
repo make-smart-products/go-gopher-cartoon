@@ -785,11 +785,14 @@
     }
 
     function colorize(code) {
-      return escapeHTML(code)
-        .replace(/\b(package|func|import|var|const|return|if|else|switch|case|default|defer|for|range|type|struct|map|nil|true|false)\b/g, "<span class=\"kw\">$1</span>")
-        .replace(/(&quot;.*?&quot;|\".*?\")/g, "<span class=\"str\">$1</span>")
-        .replace(/\b(\d+(?:\.\d+)?)\b/g, "<span class=\"num\">$1</span>")
-        .replace(/(\/\/.*)$/gm, "<span class=\"cm\">$1</span>");
+      const token = /(\/\/[^\n]*)|("[^"\n]*")|\b(package|func|import|var|const|return|if|else|switch|case|default|defer|for|range|type|struct|map|nil|true|false)\b|\b(\d+(?:\.\d+)?)\b/g;
+      return escapeHTML(code).replace(token, (match, comment, str, keyword, num) => {
+        if (comment) return `<span class="cm">${comment}</span>`;
+        if (str) return `<span class="str">${str}</span>`;
+        if (keyword) return `<span class="kw">${keyword}</span>`;
+        if (num) return `<span class="num">${num}</span>`;
+        return match;
+      });
     }
 
     function voiceScore(item) {
