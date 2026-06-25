@@ -63,6 +63,44 @@
       line-height: 1.5;
     }
 
+    .ad-ticker {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+      overflow: hidden;
+      border: 3px solid rgba(6, 66, 93, 0.22);
+      border-radius: 999px;
+      background: linear-gradient(90deg, rgba(255, 235, 154, 0.98), rgba(255, 255, 255, 0.98) 38%, rgba(223, 248, 255, 0.98));
+      box-shadow: 0 10px 24px rgba(4, 59, 91, 0.15);
+    }
+
+    .ad-ticker-track {
+      display: inline-flex;
+      gap: 24px;
+      align-items: center;
+      padding: 9px 0;
+      white-space: nowrap;
+      will-change: transform;
+      animation: tickerScroll 24s linear infinite;
+    }
+
+    .ad-label {
+      margin-left: 18px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      color: #fff;
+      background: #ff7a00;
+      font-size: 0.76rem;
+      font-weight: 1000;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .ad-sep {
+      color: rgba(7, 71, 95, 0.5);
+      font-weight: 1000;
+    }
+
     .stage {
       position: relative;
       min-height: 660px;
@@ -633,6 +671,11 @@
       to { transform: translateX(calc(100vw + 620px)); }
     }
 
+    @keyframes tickerScroll {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
     @keyframes shadowPulse {
       0%, 100% { transform: scaleX(1); opacity: 1; }
       50% { transform: scaleX(0.9); opacity: 0.78; }
@@ -726,6 +769,16 @@
         padding-top: 12px;
       }
 
+      .ad-ticker-track {
+        gap: 18px;
+        padding: 8px 0;
+        font-size: 0.93rem;
+      }
+
+      .ad-label {
+        margin-left: 12px;
+      }
+
       .stage {
         min-height: 900px;
         border-width: 5px;
@@ -806,6 +859,23 @@
       <h1>Гофер Гоша учит Go</h1>
       <p class="lead">Небольшой мультфильм со звуком: суслик-гофер выходит из норки, открывает ноутбук и знакомится с переменными, типами, функциями, условиями и циклами в Go.</p>
     </header>
+
+    <aside class="ad-ticker" aria-label="Рекламная строка">
+      <div class="ad-ticker-track">
+        <span class="ad-label">Реклама</span>
+        <span>Новый мини-курс «Go с Гошей» — первые 3 урока бесплатно</span>
+        <span class="ad-sep" aria-hidden="true">◆</span>
+        <span>Скидка 30% на подписку до конца месяца</span>
+        <span class="ad-sep" aria-hidden="true">◆</span>
+        <span>Запишись на практикум по CLI-проектам на Go</span>
+        <span class="ad-sep" aria-hidden="true">◆</span>
+        <span>Новый мини-курс «Go с Гошей» — первые 3 урока бесплатно</span>
+        <span class="ad-sep" aria-hidden="true">◆</span>
+        <span>Скидка 30% на подписку до конца месяца</span>
+        <span class="ad-sep" aria-hidden="true">◆</span>
+        <span>Запишись на практикум по CLI-проектам на Go</span>
+      </div>
+    </aside>
 
     <section class="stage" aria-label="Мультфильм про обучение Go">
       <div class="sun" aria-hidden="true"></div>
