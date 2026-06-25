@@ -78,14 +78,21 @@
       box-shadow: 0 10px 22px rgba(5, 53, 82, 0.14);
     }
 
+    .ad-ticker-marquee {
+      display: flex;
+      width: max-content;
+      min-width: 100%;
+      will-change: transform;
+      animation: tickerScroll 34s linear infinite;
+    }
+
     .ad-ticker-track {
       display: inline-flex;
+      flex: 0 0 auto;
       gap: 24px;
       align-items: center;
-      padding: 9px 0;
+      padding: 9px 16px 9px 0;
       white-space: nowrap;
-      will-change: transform;
-      animation: tickerScroll 24s linear infinite;
     }
 
     .ad-label {
@@ -613,10 +620,6 @@
     @keyframes point { 50% { transform: rotate(-74deg) translateY(-6px); } }
     @keyframes prop { from { transform: translateY(0) rotate(-4deg); } to { transform: translateY(-14px) rotate(6deg); } }
 
-    @media (prefers-reduced-motion: reduce) {
-      .ad-ticker-track { animation: none; }
-    }
-
     @media (max-width: 980px) {
       header { grid-template-columns: 1fr; }
       .stage { min-height: 940px; }
@@ -628,7 +631,7 @@
 
     @media (max-width: 640px) {
       .stage { min-height: 1010px; border-radius: 26px; border-width: 5px; }
-      .ad-ticker-track { gap: 18px; padding: 8px 0; font-size: 0.93rem; }
+      .ad-ticker-track { gap: 18px; padding: 8px 12px 8px 0; font-size: 0.93rem; }
       .ad-label { margin-left: 12px; }
       .lesson-card, .chalkboard { left: 15px; width: calc(100% - 30px); }
       .chalkboard { top: 455px; }
@@ -655,19 +658,25 @@
     </header>
 
     <aside class="ad-ticker" aria-label="Рекламная строка">
-      <div class="ad-ticker-track">
-        <span class="ad-label">Реклама</span>
-        <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-        <span class="ad-sep" aria-hidden="true">◆</span>
-        <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-        <span class="ad-sep" aria-hidden="true">◆</span>
-        <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-        <span class="ad-sep" aria-hidden="true">◆</span>
-        <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-        <span class="ad-sep" aria-hidden="true">◆</span>
-        <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-        <span class="ad-sep" aria-hidden="true">◆</span>
-        <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
+      <div class="ad-ticker-marquee">
+        <div class="ad-ticker-track">
+          <span class="ad-label">Реклама</span>
+          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
+          <span class="ad-sep" aria-hidden="true">◆</span>
+          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
+          <span class="ad-sep" aria-hidden="true">◆</span>
+          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
+          <span class="ad-sep" aria-hidden="true">◆</span>
+        </div>
+        <div class="ad-ticker-track" aria-hidden="true">
+          <span class="ad-label">Реклама</span>
+          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
+          <span class="ad-sep" aria-hidden="true">◆</span>
+          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
+          <span class="ad-sep" aria-hidden="true">◆</span>
+          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
+          <span class="ad-sep" aria-hidden="true">◆</span>
+        </div>
       </div>
     </aside>
 
