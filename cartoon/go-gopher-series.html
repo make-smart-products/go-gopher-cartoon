@@ -68,14 +68,24 @@
     }
 
     .ad-ticker {
-      display: flex;
-      align-items: center;
+      display: grid;
+      gap: 6px;
       margin-bottom: 14px;
+      padding: 8px 0;
       overflow: hidden;
       border: 3px solid rgba(0, 125, 156, 0.24);
-      border-radius: 999px;
+      border-radius: 22px;
       background: linear-gradient(90deg, rgba(255, 235, 154, 0.98), rgba(255, 255, 255, 0.98) 36%, rgba(223, 248, 255, 0.98));
       box-shadow: 0 10px 22px rgba(5, 53, 82, 0.14);
+    }
+
+    .ad-ticker-line {
+      overflow: hidden;
+      border-top: 1px dashed rgba(7, 71, 95, 0.16);
+    }
+
+    .ad-ticker-line:first-child {
+      border-top: 0;
     }
 
     .ad-ticker-marquee {
@@ -83,25 +93,32 @@
       width: max-content;
       min-width: 100%;
       will-change: transform;
-      animation: tickerScroll 11.33s linear infinite;
+      animation: tickerScroll 1.13s linear infinite;
+    }
+
+    .ad-ticker-line:nth-child(even) .ad-ticker-marquee {
+      animation-direction: reverse;
     }
 
     .ad-ticker-track {
       display: inline-flex;
       flex: 0 0 auto;
-      gap: 24px;
+      gap: 20px;
       align-items: center;
-      padding: 9px 16px 9px 0;
+      padding: 4px 14px 4px 0;
       white-space: nowrap;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #124359;
     }
 
     .ad-label {
-      margin-left: 18px;
-      padding: 5px 10px;
+      margin-left: 14px;
+      padding: 4px 10px;
       border-radius: 999px;
       color: #fff;
       background: #ff7a00;
-      font-size: 0.76rem;
+      font-size: 0.72rem;
       font-weight: 1000;
       letter-spacing: 0.04em;
       text-transform: uppercase;
@@ -631,7 +648,7 @@
 
     @media (max-width: 640px) {
       .stage { min-height: 1010px; border-radius: 26px; border-width: 5px; }
-      .ad-ticker-track { gap: 18px; padding: 8px 12px 8px 0; font-size: 0.93rem; }
+      .ad-ticker-track { gap: 14px; padding: 3px 10px 3px 0; font-size: 0.85rem; }
       .ad-label { margin-left: 12px; }
       .lesson-card, .chalkboard { left: 15px; width: calc(100% - 30px); }
       .chalkboard { top: 455px; }
@@ -658,24 +675,94 @@
     </header>
 
     <aside class="ad-ticker" aria-label="Рекламная строка">
-      <div class="ad-ticker-marquee">
-        <div class="ad-ticker-track">
-          <span class="ad-label">Реклама</span>
-          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-          <span class="ad-sep" aria-hidden="true">◆</span>
-          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-          <span class="ad-sep" aria-hidden="true">◆</span>
-          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-          <span class="ad-sep" aria-hidden="true">◆</span>
+      <div class="ad-ticker-line">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Реклама</span>
+            <span>Только сегодня: скидка до 70% на хиты недели.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Успейте оформить заказ до 23:59.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Реклама</span>
+            <span>Только сегодня: скидка до 70% на хиты недели.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Успейте оформить заказ до 23:59.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
         </div>
-        <div class="ad-ticker-track" aria-hidden="true">
-          <span class="ad-label">Реклама</span>
-          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-          <span class="ad-sep" aria-hidden="true">◆</span>
-          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-          <span class="ad-sep" aria-hidden="true">◆</span>
-          <span>Здесь может быть ваша реклама, тел: 8-925-450-хх-хх.</span>
-          <span class="ad-sep" aria-hidden="true">◆</span>
+      </div>
+      <div class="ad-ticker-line">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Реклама</span>
+            <span>Рассрочка 0-0-12 без переплат и скрытых комиссий.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Одобрение заявки за 5 минут.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Реклама</span>
+            <span>Рассрочка 0-0-12 без переплат и скрытых комиссий.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Одобрение заявки за 5 минут.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Реклама</span>
+            <span>Бесплатная доставка при заказе от 1990 рублей.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Самовывоз из пункта выдачи уже сегодня.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Реклама</span>
+            <span>Бесплатная доставка при заказе от 1990 рублей.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Самовывоз из пункта выдачи уже сегодня.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Реклама</span>
+            <span>Купите 2 товара и получите третий в подарок.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Подарочный сертификат к каждому заказу от 5000 рублей.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Реклама</span>
+            <span>Купите 2 товара и получите третий в подарок.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Подарочный сертификат к каждому заказу от 5000 рублей.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Реклама</span>
+            <span>Оставьте заявку сейчас и получите бонус 500 рублей.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Акция действует до воскресенья включительно.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Реклама</span>
+            <span>Оставьте заявку сейчас и получите бонус 500 рублей.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Акция действует до воскресенья включительно.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
         </div>
       </div>
     </aside>
