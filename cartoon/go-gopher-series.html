@@ -279,14 +279,29 @@
       content: "";
     }
 
+    .gopher-shadow {
+      position: absolute;
+      z-index: 4;
+      left: 150px;
+      bottom: 80px;
+      width: 168px;
+      height: 34px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at center, rgba(8, 38, 22, 0.34), rgba(8, 38, 22, 0) 72%);
+      pointer-events: none;
+      animation: shadowPulse 2.2s ease-in-out infinite;
+    }
+
     .gopher {
       position: absolute;
       z-index: 5;
-      left: 124px;
-      bottom: 88px;
+      left: 152px;
+      bottom: 92px;
       width: 230px;
       height: 292px;
+      scale: 0.68;
       transform-origin: center bottom;
+      filter: drop-shadow(0 12px 10px rgba(10, 40, 60, 0.2));
       animation: idle 2.2s ease-in-out infinite;
     }
 
@@ -315,8 +330,8 @@
       width: 152px;
       height: 192px;
       border-radius: 48% 48% 34% 34%;
-      background: var(--gopher);
-      box-shadow: inset -20px -14px 0 rgba(68, 38, 22, 0.13);
+      background: linear-gradient(152deg, #cb9a6c 0%, var(--gopher) 46%, #9d6c41 100%);
+      box-shadow: inset -22px -16px 24px rgba(68, 38, 22, 0.18), inset 16px 12px 22px rgba(255, 224, 188, 0.28);
     }
 
     .belly {
@@ -326,7 +341,8 @@
       width: 94px;
       height: 122px;
       border-radius: 48%;
-      background: var(--gopher-light);
+      background: radial-gradient(120% 110% at 50% 20%, #fff3da, var(--gopher-light) 78%);
+      box-shadow: inset 0 -10px 18px rgba(196, 142, 92, 0.25);
     }
 
     .head {
@@ -336,8 +352,8 @@
       width: 178px;
       height: 148px;
       border-radius: 48% 48% 44% 44%;
-      background: var(--gopher);
-      box-shadow: inset -18px -8px 0 rgba(68, 38, 22, 0.12);
+      background: radial-gradient(120% 120% at 34% 26%, #d2a172, var(--gopher) 58%, #9d6c41 116%);
+      box-shadow: inset -18px -10px 22px rgba(68, 38, 22, 0.16), inset 14px 10px 20px rgba(255, 224, 188, 0.3);
     }
 
     .ear {
@@ -366,7 +382,10 @@
 
     .eye.left { left: 52px; }
     .eye.right { right: 52px; }
-    .nose { position: absolute; left: 74px; top: 84px; width: 32px; height: 22px; border-radius: 50%; background: #332017; }
+    .cheek { position: absolute; top: 92px; width: 26px; height: 15px; border-radius: 50%; background: rgba(255, 138, 110, 0.4); filter: blur(0.5px); }
+    .cheek.left { left: 36px; }
+    .cheek.right { right: 38px; }
+    .nose { position: absolute; left: 74px; top: 84px; width: 32px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 38% 32%, #4a2f20, #2a190f); }
     .mouth { position: absolute; left: 67px; top: 106px; width: 46px; height: 24px; border-bottom: 5px solid #332017; border-radius: 0 0 50% 50%; }
     .tooth { position: absolute; top: 108px; width: 14px; height: 22px; border-radius: 0 0 4px 4px; background: #fff9e8; }
     .tooth.one { left: 75px; }
@@ -543,6 +562,7 @@
     .map-card strong { display: block; color: #006d90; margin-bottom: 5px; }
 
     @keyframes drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 560px)); } }
+    @keyframes shadowPulse { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.9); opacity: 0.78; } }
     @keyframes bubble { 50% { transform: translateY(-7px); } }
     @keyframes idle { 50% { transform: translateY(-8px) rotate(1deg); } }
     @keyframes teach { 0%, 100% { transform: rotate(0); } 45% { transform: translateY(-10px) rotate(-3deg); } 72% { transform: translateY(-4px) rotate(3deg); } }
@@ -567,7 +587,8 @@
       .stage { min-height: 1010px; border-radius: 26px; border-width: 5px; }
       .lesson-card, .chalkboard { left: 15px; width: calc(100% - 30px); }
       .chalkboard { top: 455px; }
-      .gopher { left: 36px; transform: scale(0.86); transform-origin: left bottom; }
+      .gopher { left: 40px; scale: 0.56; transform-origin: left bottom; }
+      .gopher-shadow { left: 46px; bottom: 84px; width: 116px; height: 26px; }
       .bubble { left: 136px; right: 16px; bottom: 360px; }
       .prop { width: 84px; height: 84px; right: 24px; bottom: 235px; font-size: 2.2rem; }
       .controls { grid-template-columns: 1fr; }
@@ -610,6 +631,7 @@
       <div class="bubble" id="bubble">Готов к серии?</div>
       <div class="prop" id="prop" aria-hidden="true">🎬</div>
 
+      <div class="gopher-shadow" id="gopherShadow" aria-hidden="true"></div>
       <div class="gopher teach" id="gopher" aria-hidden="true">
         <div class="tail"></div>
         <div class="body"><div class="belly"></div></div>
@@ -619,6 +641,8 @@
           <div class="ear right"></div>
           <div class="eye left"></div>
           <div class="eye right"></div>
+          <div class="cheek left"></div>
+          <div class="cheek right"></div>
           <div class="nose"></div>
           <div class="mouth"></div>
           <div class="tooth one"></div>
@@ -761,11 +785,14 @@
     }
 
     function colorize(code) {
-      return escapeHTML(code)
-        .replace(/\b(package|func|import|var|const|return|if|else|switch|case|default|defer|for|range|type|struct|map|nil|true|false)\b/g, "<span class=\"kw\">$1</span>")
-        .replace(/(&quot;.*?&quot;|\".*?\")/g, "<span class=\"str\">$1</span>")
-        .replace(/\b(\d+(?:\.\d+)?)\b/g, "<span class=\"num\">$1</span>")
-        .replace(/(\/\/.*)$/gm, "<span class=\"cm\">$1</span>");
+      const token = /(\/\/[^\n]*)|("[^"\n]*")|\b(package|func|import|var|const|return|if|else|switch|case|default|defer|for|range|type|struct|map|nil|true|false)\b|\b(\d+(?:\.\d+)?)\b/g;
+      return escapeHTML(code).replace(token, (match, comment, str, keyword, num) => {
+        if (comment) return `<span class="cm">${comment}</span>`;
+        if (str) return `<span class="str">${str}</span>`;
+        if (keyword) return `<span class="kw">${keyword}</span>`;
+        if (num) return `<span class="num">${num}</span>`;
+        return match;
+      });
     }
 
     function voiceScore(item) {
