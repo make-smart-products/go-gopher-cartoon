@@ -89,12 +89,14 @@
       width: max-content;
       min-width: 100%;
       will-change: transform;
-      animation: tickerScroll 1.13s linear infinite;
+      animation: tickerScroll 3.39s linear infinite;
     }
 
-    .ad-ticker-line:nth-child(even) .ad-ticker-marquee {
-      animation-direction: reverse;
-    }
+    .ad-ticker-line:nth-child(1) .ad-ticker-marquee { animation-delay: 0s; }
+    .ad-ticker-line:nth-child(2) .ad-ticker-marquee { animation-delay: 1s; }
+    .ad-ticker-line:nth-child(3) .ad-ticker-marquee { animation-delay: 2s; }
+    .ad-ticker-line:nth-child(4) .ad-ticker-marquee { animation-delay: 3s; }
+    .ad-ticker-line:nth-child(5) .ad-ticker-marquee { animation-delay: 4s; }
 
     .ad-ticker-track {
       display: inline-flex;
@@ -876,7 +878,7 @@
       }
 
       .ad-ticker-marquee {
-        animation: tickerScroll 1.13s linear infinite !important;
+        animation: tickerScroll 3.39s linear infinite !important;
       }
     }
   </style>
