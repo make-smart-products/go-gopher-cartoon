@@ -89,7 +89,7 @@
       width: max-content;
       min-width: 100%;
       will-change: transform;
-      animation: tickerScroll 6.78s linear infinite;
+      animation: tickerScroll 13.56s linear infinite;
     }
 
     .ad-ticker-line:nth-child(1) .ad-ticker-marquee { animation-delay: 0s; }
@@ -97,6 +97,9 @@
     .ad-ticker-line:nth-child(3) .ad-ticker-marquee { animation-delay: 2s; }
     .ad-ticker-line:nth-child(4) .ad-ticker-marquee { animation-delay: 3s; }
     .ad-ticker-line:nth-child(5) .ad-ticker-marquee { animation-delay: 4s; }
+    .ad-ticker-line:nth-child(6) .ad-ticker-marquee { animation-delay: 5s; }
+    .ad-ticker-line:nth-child(7) .ad-ticker-marquee { animation-delay: 6s; }
+    .ad-ticker-line:nth-child(8) .ad-ticker-marquee { animation-delay: 7s; }
 
     .ad-ticker-track {
       display: inline-flex;
@@ -157,6 +160,125 @@
       color: #fff;
       text-shadow: 0 0 8px #fff, 0 0 16px #00e5ff, 0 0 22px #ff00d4;
       animation: casinoSpin 0.9s linear infinite;
+    }
+
+    .outro {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 22px 26px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #fff7e6, #e7f7ff);
+      box-shadow: 0 14px 38px rgba(4, 59, 91, 0.14);
+    }
+
+    .girl {
+      position: relative;
+      flex: 0 0 auto;
+      width: 132px;
+      height: 188px;
+    }
+
+    .girl .hair-back {
+      position: absolute;
+      left: 24px;
+      top: 6px;
+      width: 84px;
+      height: 150px;
+      border-radius: 46% 46% 40% 40%;
+      background: linear-gradient(180deg, #ffd86b, #f0b73f);
+    }
+
+    .girl .head {
+      position: absolute;
+      left: 38px;
+      top: 22px;
+      width: 56px;
+      height: 60px;
+      border-radius: 50% 50% 48% 48%;
+      background: #ffe0c4;
+    }
+
+    .girl .fringe {
+      position: absolute;
+      left: 34px;
+      top: 14px;
+      width: 64px;
+      height: 34px;
+      border-radius: 50% 50% 38% 38%;
+      background: linear-gradient(180deg, #ffd86b, #f4c24c);
+    }
+
+    .girl .eye-l, .girl .eye-r {
+      position: absolute;
+      top: 46px;
+      width: 7px;
+      height: 9px;
+      border-radius: 50%;
+      background: #3a2a1c;
+    }
+
+    .girl .eye-l { left: 52px; }
+    .girl .eye-r { left: 72px; }
+
+    .girl .smile {
+      position: absolute;
+      left: 56px;
+      top: 60px;
+      width: 20px;
+      height: 11px;
+      border-bottom: 3px solid #c8607a;
+      border-radius: 0 0 40% 40%;
+    }
+
+    .girl .dress {
+      position: absolute;
+      left: 30px;
+      bottom: 0;
+      width: 72px;
+      height: 104px;
+      border-radius: 26px 26px 14px 14px;
+      background: linear-gradient(160deg, #4aa3ff, #2b6fd6);
+      box-shadow: inset -10px -8px 0 rgba(15, 60, 120, 0.18);
+    }
+
+    .girl .arm-l, .girl .arm-r {
+      position: absolute;
+      bottom: 30px;
+      width: 16px;
+      height: 70px;
+      border-radius: 999px;
+      background: #ffe0c4;
+    }
+
+    .girl .arm-l { left: 22px; transform: rotate(10deg); }
+    .girl .arm-r { right: 22px; transform: rotate(-10deg); }
+
+    .outro-bubble {
+      position: relative;
+      margin: 0;
+      padding: 18px 22px;
+      border: 4px solid #06354b;
+      border-radius: 26px;
+      background: #fff;
+      box-shadow: 0 10px 0 rgba(4, 59, 92, 0.13);
+      color: #06354b;
+      font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+      font-weight: 1000;
+    }
+
+    .outro-bubble::before {
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      width: 26px;
+      height: 26px;
+      border-left: 4px solid #06354b;
+      border-bottom: 4px solid #06354b;
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+      content: "";
     }
 
     .stage {
@@ -754,29 +876,29 @@
     }
 
     @keyframes idleGopher {
-      50% { transform: translateY(-8px) rotate(1deg); }
+      50% { transform: translateY(-2px) rotate(0.25deg); }
     }
 
     @keyframes teachGopher {
       0%, 100% { transform: translateY(0) rotate(0); }
-      35% { transform: translateY(-12px) rotate(-3deg); }
-      70% { transform: translateY(-4px) rotate(3deg); }
+      35% { transform: translateY(-3px) rotate(-0.75deg); }
+      70% { transform: translateY(-1px) rotate(0.75deg); }
     }
 
     @keyframes jumpGopher {
       0%, 100% { transform: translateY(0) scaleY(1); }
-      45% { transform: translateY(-44px) scaleY(1.03); }
-      78% { transform: translateY(0) scaleY(0.94); }
+      45% { transform: translateY(-11px) scaleY(1.0075); }
+      78% { transform: translateY(0) scaleY(0.985); }
     }
 
     @keyframes thinkGopher {
       0%, 100% { transform: rotate(0); }
-      30% { transform: rotate(-6deg); }
-      70% { transform: rotate(5deg); }
+      30% { transform: rotate(-1.5deg); }
+      70% { transform: rotate(1.25deg); }
     }
 
     @keyframes wag {
-      50% { transform: rotate(-34deg); }
+      50% { transform: rotate(-25.75deg); }
     }
 
     @keyframes blink {
@@ -785,7 +907,7 @@
     }
 
     @keyframes point {
-      50% { transform: rotate(-72deg) translateY(-6px); }
+      50% { transform: rotate(-44.25deg) translateY(-1.5px); }
     }
 
     @keyframes propPop {
@@ -920,7 +1042,7 @@
       }
 
       .ad-ticker-marquee {
-        animation: tickerScroll 6.78s linear infinite !important;
+        animation: tickerScroll 13.56s linear infinite !important;
       }
     }
   </style>
@@ -932,21 +1054,21 @@
       <p class="lead">Небольшой мультфильм со звуком: суслик-гофер выходит из норки, открывает ноутбук и знакомится с переменными, типами, функциями, условиями и циклами в Go.</p>
     </header>
 
-    <aside class="ad-ticker" aria-label="Рекламная строка">
+    <aside class="ad-ticker" aria-label="Бегущая строка с основными правилами Go">
       <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Только сегодня: скидка до 70% на хиты недели.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Каждая программа начинается с package main.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Успейте оформить заказ до 23:59.</span>
+            <span>Точка входа — функция func main().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Только сегодня: скидка до 70% на хиты недели.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Каждая программа начинается с package main.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Успейте оформить заказ до 23:59.</span>
+            <span>Точка входа — функция func main().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -954,17 +1076,17 @@
       <div class="ad-ticker-line casino">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Рассрочка 0-0-12 без переплат и скрытых комиссий.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Обрабатывай ошибки явно: if err != nil.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Одобрение заявки за 5 минут.</span>
+            <span>Никогда не игнорируй возвращённую ошибку.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Рассрочка 0-0-12 без переплат и скрытых комиссий.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Обрабатывай ошибки явно: if err != nil.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Одобрение заявки за 5 минут.</span>
+            <span>Никогда не игнорируй возвращённую ошибку.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -972,17 +1094,17 @@
       <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Бесплатная доставка при заказе от 1990 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Форматируй код: gofmt и go fmt ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Самовывоз из пункта выдачи уже сегодня.</span>
+            <span>Проверяй подозрительное: go vet ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Бесплатная доставка при заказе от 1990 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Форматируй код: gofmt и go fmt ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Самовывоз из пункта выдачи уже сегодня.</span>
+            <span>Проверяй подозрительное: go vet ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -990,17 +1112,17 @@
       <div class="ad-ticker-line casino">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Купите 2 товара и получите третий в подарок.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Имя с большой буквы экспортируется наружу.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Подарочный сертификат к каждому заказу от 5000 рублей.</span>
+            <span>Внутри функций объявляй через :=.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Купите 2 товара и получите третий в подарок.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Имя с большой буквы экспортируется наружу.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Подарочный сертификат к каждому заказу от 5000 рублей.</span>
+            <span>Внутри функций объявляй через :=.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -1008,17 +1130,71 @@
       <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Оставьте заявку сейчас и получите бонус 500 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>defer освобождает ресурсы: defer f.Close().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Акция действует до воскресенья включительно.</span>
+            <span>В Go один цикл на всё — for.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Оставьте заявку сейчас и получите бонус 500 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>defer освобождает ресурсы: defer f.Close().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Акция действует до воскресенья включительно.</span>
+            <span>В Go один цикл на всё — for.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line casino">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Правило Go</span>
+            <span>Не делись памятью — общайся через каналы.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Запускай конкурентность через горутины: go f().</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Правило Go</span>
+            <span>Не делись памятью — общайся через каналы.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Запускай конкурентность через горутины: go f().</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Правило Go</span>
+            <span>Предпочитай композицию наследованию.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Делай интерфейсы маленькими.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Правило Go</span>
+            <span>Предпочитай композицию наследованию.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Делай интерфейсы маленькими.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line casino">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Правило Go</span>
+            <span>Пустой идентификатор _ игнорирует значение.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Неиспользуемые импорты и переменные — ошибка.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Правило Go</span>
+            <span>Пустой идентификатор _ игнорирует значение.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Неиспользуемые импорты и переменные — ошибка.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -1100,6 +1276,21 @@
       <div class="tip"><strong>Типы</strong>Числа, строки и логика помогают Go понимать программу.</div>
       <div class="tip"><strong>Функции</strong>Повторяемые действия получают имя и параметры.</div>
       <div class="tip"><strong>Циклы</strong>Команда <code>for</code> повторяет шаги без усталости.</div>
+    </section>
+
+    <section class="outro" aria-label="Итог">
+      <div class="girl" aria-hidden="true">
+        <div class="hair-back"></div>
+        <div class="dress"></div>
+        <div class="arm-l"></div>
+        <div class="arm-r"></div>
+        <div class="head"></div>
+        <div class="fringe"></div>
+        <div class="eye-l"></div>
+        <div class="eye-r"></div>
+        <div class="smile"></div>
+      </div>
+      <p class="outro-bubble">Ну что? Разобрался?</p>
     </section>
 
     <noscript>
