@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Гофер Гоша: три серии про Go</title>
+  <title>Гофер Гоша: пять серий про Go</title>
   <style>
     :root {
       --sky: #83d9ff;
@@ -93,7 +93,7 @@
       width: max-content;
       min-width: 100%;
       will-change: transform;
-      animation: tickerScroll 6.78s linear infinite;
+      animation: tickerScroll 13.56s linear infinite;
     }
 
     .ad-ticker-line:nth-child(1) .ad-ticker-marquee { animation-delay: 0s; }
@@ -101,6 +101,9 @@
     .ad-ticker-line:nth-child(3) .ad-ticker-marquee { animation-delay: 2s; }
     .ad-ticker-line:nth-child(4) .ad-ticker-marquee { animation-delay: 3s; }
     .ad-ticker-line:nth-child(5) .ad-ticker-marquee { animation-delay: 4s; }
+    .ad-ticker-line:nth-child(6) .ad-ticker-marquee { animation-delay: 5s; }
+    .ad-ticker-line:nth-child(7) .ad-ticker-marquee { animation-delay: 6s; }
+    .ad-ticker-line:nth-child(8) .ad-ticker-marquee { animation-delay: 7s; }
 
     .ad-ticker-track {
       display: inline-flex;
@@ -657,6 +660,125 @@
 
     .map-card strong { display: block; color: #006d90; margin-bottom: 5px; }
 
+    .outro {
+      display: flex;
+      gap: 22px;
+      align-items: center;
+      margin-top: 16px;
+      padding: 22px 26px;
+      border-radius: 28px;
+      background: linear-gradient(135deg, #fff7e6, #e7f7ff);
+      box-shadow: 0 14px 38px rgba(5, 53, 82, 0.14);
+    }
+
+    .girl {
+      position: relative;
+      flex: 0 0 auto;
+      width: 132px;
+      height: 188px;
+    }
+
+    .girl .hair-back {
+      position: absolute;
+      left: 24px;
+      top: 6px;
+      width: 84px;
+      height: 150px;
+      border-radius: 46% 46% 40% 40%;
+      background: linear-gradient(180deg, #ffd86b, #f0b73f);
+    }
+
+    .girl .head {
+      position: absolute;
+      left: 38px;
+      top: 22px;
+      width: 56px;
+      height: 60px;
+      border-radius: 50% 50% 48% 48%;
+      background: #ffe0c4;
+    }
+
+    .girl .fringe {
+      position: absolute;
+      left: 34px;
+      top: 14px;
+      width: 64px;
+      height: 34px;
+      border-radius: 50% 50% 38% 38%;
+      background: linear-gradient(180deg, #ffd86b, #f4c24c);
+    }
+
+    .girl .eye-l, .girl .eye-r {
+      position: absolute;
+      top: 46px;
+      width: 7px;
+      height: 9px;
+      border-radius: 50%;
+      background: #3a2a1c;
+    }
+
+    .girl .eye-l { left: 52px; }
+    .girl .eye-r { left: 72px; }
+
+    .girl .smile {
+      position: absolute;
+      left: 56px;
+      top: 60px;
+      width: 20px;
+      height: 11px;
+      border-bottom: 3px solid #c8607a;
+      border-radius: 0 0 40% 40%;
+    }
+
+    .girl .dress {
+      position: absolute;
+      left: 30px;
+      bottom: 0;
+      width: 72px;
+      height: 104px;
+      border-radius: 26px 26px 14px 14px;
+      background: linear-gradient(160deg, #4aa3ff, #2b6fd6);
+      box-shadow: inset -10px -8px 0 rgba(15, 60, 120, 0.18);
+    }
+
+    .girl .arm-l, .girl .arm-r {
+      position: absolute;
+      bottom: 30px;
+      width: 16px;
+      height: 70px;
+      border-radius: 999px;
+      background: #ffe0c4;
+    }
+
+    .girl .arm-l { left: 22px; transform: rotate(10deg); }
+    .girl .arm-r { right: 22px; transform: rotate(-10deg); }
+
+    .outro-bubble {
+      position: relative;
+      margin: 0;
+      padding: 18px 22px;
+      border: 4px solid #06354b;
+      border-radius: 26px;
+      background: #fff;
+      box-shadow: 0 10px 0 rgba(4, 59, 92, 0.13);
+      color: #06354b;
+      font-size: clamp(1.1rem, 2.4vw, 1.6rem);
+      font-weight: 1000;
+    }
+
+    .outro-bubble::before {
+      position: absolute;
+      left: -16px;
+      top: 50%;
+      width: 26px;
+      height: 26px;
+      border-left: 4px solid #06354b;
+      border-bottom: 4px solid #06354b;
+      background: #fff;
+      transform: translateY(-50%) rotate(45deg);
+      content: "";
+    }
+
     @keyframes drift { from { transform: translateX(0); } to { transform: translateX(calc(100vw + 560px)); } }
     @keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
     @keyframes casinoBg { from { background-position: 0% 50%; } to { background-position: 360% 50%; } }
@@ -670,14 +792,14 @@
     @keyframes casinoSpin { to { transform: rotate(360deg); } }
     @keyframes shadowPulse { 0%, 100% { transform: scaleX(1); opacity: 1; } 50% { transform: scaleX(0.9); opacity: 0.78; } }
     @keyframes bubble { 50% { transform: translateY(-7px); } }
-    @keyframes idle { 50% { transform: translateY(-8px) rotate(1deg); } }
-    @keyframes teach { 0%, 100% { transform: rotate(0); } 45% { transform: translateY(-10px) rotate(-3deg); } 72% { transform: translateY(-4px) rotate(3deg); } }
-    @keyframes jump { 0%, 100% { transform: translateY(0) scaleY(1); } 45% { transform: translateY(-42px) scaleY(1.03); } 78% { transform: translateY(0) scaleY(0.94); } }
-    @keyframes think { 0%, 100% { transform: rotate(0); } 35% { transform: rotate(-6deg); } 70% { transform: rotate(5deg); } }
-    @keyframes codeDance { 0%, 100% { transform: translateX(0); } 30% { transform: translateX(-8px) rotate(-2deg); } 70% { transform: translateX(8px) rotate(2deg); } }
-    @keyframes wag { 50% { transform: rotate(-35deg); } }
+    @keyframes idle { 50% { transform: translateY(-2px) rotate(0.25deg); } }
+    @keyframes teach { 0%, 100% { transform: rotate(0); } 45% { transform: translateY(-2.5px) rotate(-0.75deg); } 72% { transform: translateY(-1px) rotate(0.75deg); } }
+    @keyframes jump { 0%, 100% { transform: translateY(0) scaleY(1); } 45% { transform: translateY(-10.5px) scaleY(1.0075); } 78% { transform: translateY(0) scaleY(0.985); } }
+    @keyframes think { 0%, 100% { transform: rotate(0); } 35% { transform: rotate(-1.5deg); } 70% { transform: rotate(1.25deg); } }
+    @keyframes codeDance { 0%, 100% { transform: translateX(0); } 30% { transform: translateX(-2px) rotate(-0.5deg); } 70% { transform: translateX(2px) rotate(0.5deg); } }
+    @keyframes wag { 50% { transform: rotate(-26.75deg); } }
     @keyframes blink { 0%, 47%, 51%, 100% { transform: scaleY(1); } 49% { transform: scaleY(0.08); } }
-    @keyframes point { 50% { transform: rotate(-74deg) translateY(-6px); } }
+    @keyframes point { 50% { transform: rotate(-44.75deg) translateY(-1.5px); } }
     @keyframes prop { from { transform: translateY(0) rotate(-4deg); } to { transform: translateY(-14px) rotate(6deg); } }
 
     @media (max-width: 980px) {
@@ -708,8 +830,8 @@
   <main class="app">
     <header>
       <div>
-        <h1>Гофер Гоша: Go за 3 серии</h1>
-        <p class="lead">Улучшенный учебный мультфильм: больше сцен, крупнее код, мини-викторины, автостарт для записи и звуковые эффекты. Каждая серия рассчитана на 5 минут.</p>
+        <h1>Гофер Гоша: Go за 5 серий</h1>
+        <p class="lead">Улучшенный учебный мультфильм: больше сцен и примеров, основные правила Go в бегущей строке, мини-викторины и звуковые эффекты. Тайминг сцен подобран так, чтобы не было длинных пауз.</p>
       </div>
       <div class="episode-picker">
         <label for="episodeSelect">Выбери серию</label>
@@ -717,21 +839,21 @@
       </div>
     </header>
 
-    <aside class="ad-ticker" aria-label="Рекламная строка">
+    <aside class="ad-ticker" aria-label="Бегущая строка с основными правилами Go">
       <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Только сегодня: скидка до 70% на хиты недели.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Каждая программа начинается с package main.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Успейте оформить заказ до 23:59.</span>
+            <span>Точка входа — функция func main().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Только сегодня: скидка до 70% на хиты недели.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Каждая программа начинается с package main.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Успейте оформить заказ до 23:59.</span>
+            <span>Точка входа — функция func main().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -739,17 +861,17 @@
       <div class="ad-ticker-line casino">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Рассрочка 0-0-12 без переплат и скрытых комиссий.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Обрабатывай ошибки явно: if err != nil.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Одобрение заявки за 5 минут.</span>
+            <span>Никогда не игнорируй возвращённую ошибку.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Рассрочка 0-0-12 без переплат и скрытых комиссий.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Обрабатывай ошибки явно: if err != nil.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Одобрение заявки за 5 минут.</span>
+            <span>Никогда не игнорируй возвращённую ошибку.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -757,17 +879,17 @@
       <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Бесплатная доставка при заказе от 1990 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Форматируй код: gofmt и go fmt ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Самовывоз из пункта выдачи уже сегодня.</span>
+            <span>Проверяй подозрительное: go vet ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Бесплатная доставка при заказе от 1990 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Форматируй код: gofmt и go fmt ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Самовывоз из пункта выдачи уже сегодня.</span>
+            <span>Проверяй подозрительное: go vet ./...</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -775,17 +897,17 @@
       <div class="ad-ticker-line casino">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Купите 2 товара и получите третий в подарок.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Имя с большой буквы экспортируется наружу.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Подарочный сертификат к каждому заказу от 5000 рублей.</span>
+            <span>Внутри функций объявляй через :=.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Купите 2 товара и получите третий в подарок.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>Имя с большой буквы экспортируется наружу.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Подарочный сертификат к каждому заказу от 5000 рублей.</span>
+            <span>Внутри функций объявляй через :=.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -793,17 +915,71 @@
       <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
-            <span class="ad-label">Реклама</span>
-            <span>Оставьте заявку сейчас и получите бонус 500 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>defer освобождает ресурсы: defer f.Close().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Акция действует до воскресенья включительно.</span>
+            <span>В Go один цикл на всё — for.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
           <div class="ad-ticker-track" aria-hidden="true">
-            <span class="ad-label">Реклама</span>
-            <span>Оставьте заявку сейчас и получите бонус 500 рублей.</span>
+            <span class="ad-label">Правило Go</span>
+            <span>defer освобождает ресурсы: defer f.Close().</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
-            <span>Акция действует до воскресенья включительно.</span>
+            <span>В Go один цикл на всё — for.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line casino">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Правило Go</span>
+            <span>Не делись памятью — общайся через каналы.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Запускай конкурентность через горутины: go f().</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Правило Go</span>
+            <span>Не делись памятью — общайся через каналы.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Запускай конкурентность через горутины: go f().</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Правило Go</span>
+            <span>Предпочитай композицию наследованию.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Делай интерфейсы маленькими.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Правило Go</span>
+            <span>Предпочитай композицию наследованию.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Делай интерфейсы маленькими.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+        </div>
+      </div>
+      <div class="ad-ticker-line casino">
+        <div class="ad-ticker-marquee">
+          <div class="ad-ticker-track">
+            <span class="ad-label">Правило Go</span>
+            <span>Пустой идентификатор _ игнорирует значение.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Неиспользуемые импорты и переменные — ошибка.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+          </div>
+          <div class="ad-ticker-track" aria-hidden="true">
+            <span class="ad-label">Правило Go</span>
+            <span>Пустой идентификатор _ игнорирует значение.</span>
+            <span class="ad-sep" aria-hidden="true">◆</span>
+            <span>Неиспользуемые импорты и переменные — ошибка.</span>
             <span class="ad-sep" aria-hidden="true">◆</span>
           </div>
         </div>
@@ -882,11 +1058,31 @@
       <div class="map-card"><strong>Серия 1: первые шаги</strong>package, main, вывод, переменные, типы и запуск программы.</div>
       <div class="map-card"><strong>Серия 2: логика</strong>функции, возвращаемые значения, условия, switch и обработка ошибок.</div>
       <div class="map-card"><strong>Серия 3: практика</strong>циклы, slices, maps, structs и маленький CLI-проект.</div>
+      <div class="map-card"><strong>Серия 4: интерфейсы</strong>методы, интерфейсы, композиция, обработка ошибок и Stringer.</div>
+      <div class="map-card"><strong>Серия 5: конкурентность</strong>горутины, каналы, select, sync и стандартная библиотека.</div>
+    </section>
+
+    <section class="outro" aria-label="Итог">
+      <div class="girl" aria-hidden="true">
+        <div class="hair-back"></div>
+        <div class="dress"></div>
+        <div class="arm-l"></div>
+        <div class="arm-r"></div>
+        <div class="head"></div>
+        <div class="fringe"></div>
+        <div class="eye-l"></div>
+        <div class="eye-r"></div>
+        <div class="smile"></div>
+      </div>
+      <p class="outro-bubble">Ну что? Разобрался?</p>
     </section>
   </main>
 
   <script>
-    const EPISODE_MS = 5 * 60 * 1000;
+    const SCENE_MS = 14000;
+    function episodeDuration() {
+      return episodes[episodeIndex].scenes.length * SCENE_MS;
+    }
 
     const episodes = [
       {
@@ -897,7 +1093,7 @@
           ["Вход в программу", "Функция main — стартовая дверь. Когда запускаем программу, Go входит именно сюда.", "Почему main не получает аргументы?", "🚪", "jump", "package main\n\nfunc main() {\n    println(\"Привет, Гоша!\")\n}", "$ go run .\nПривет, Гоша!", "main — точка входа исполняемой программы."],
           ["Красивый вывод", "Для форматированного вывода Гоша подключает пакет fmt и вызывает fmt.Println.", "Что делает import?", "💬", "code", "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Go говорит привет\")\n}", "$ go run .\nGo говорит привет", "import подключает готовые возможности пакетов."],
           ["Комментарии для будущего Гоши", "Комментарии не выполняются, зато помогают объяснить смысл кода человеку.", "Когда комментарий полезен?", "✏️", "think", "// Считаем желуди для зимы\nacorns := 7\nfmt.Println(acorns)", "$ go run .\n7", "Комментарии объясняют намерение, а не очевидную операцию."],
-          ["Переменные-коробочки", "Переменная хранит значение. Короткая запись := удобна внутри функций.", "Где можно использовать := ?", "📦", "teach", "func main() {\n    acorns := 5\n    acorns = acorns + 2\n    fmt.Println(acorns)\n}", "$ go run .\n7", "Имя переменной должно помогать читать программу."],
+          ["Переменные-коробочки", "Переменная хранит значение. Короткая запись := удобна внутри функций.", "Где можно использовать := ?", "📦", "teach", "acorns := 5           // короткая запись\nvar steps int = 1200  // с явным типом\nvar ready = true      // тип выведется сам\nfmt.Println(acorns, steps, ready)", "$ go run .\n5 1200 true", "Имя переменной должно помогать читать программу."],
           ["Явные типы", "Go умеет выводить тип, но можно написать его явно: var steps int.", "Зачем типы компилятору?", "🏷️", "think", "var steps int = 1200\nvar name string = \"Гоша\"\nvar ready bool = true", "$ go run .\nГоша 1200 true", "Типы помогают находить ошибки до запуска."],
           ["Числа и строки", "Числа складываются, строки склеиваются, а bool хранит true или false.", "Что будет при 2 + \"2\"?", "🧩", "code", "distance := 3.5\nunit := \"км\"\nfmt.Println(distance, unit)", "$ go run .\n3.5 км", "Go не смешивает разные типы без явного решения."],
           ["Константы", "Если значение не должно меняться, Гоша делает его константой.", "Чем const отличается от var?", "🔒", "teach", "const lesson = \"Go basics\"\nconst maxAcorns = 10\nfmt.Println(lesson, maxAcorns)", "$ go run .\nGo basics 10", "Константы защищают важные значения от случайной замены."],
@@ -911,7 +1107,7 @@
         name: "Серия 2: функции, логика и ошибки",
         summary: "Гоша учится дробить программу на функции и выбирать правильный путь.",
         scenes: [
-          ["Зачем нужны функции", "Функция дает имя действию. Так код становится короче и понятнее.", "Что повторяется в твоем коде?", "🧰", "teach", "func greet(name string) {\n    fmt.Println(\"Привет,\", name)\n}", "$ go run .\nПривет, Гоша", "Функции убирают повторение и показывают намерение."],
+          ["Зачем нужны функции", "Функция дает имя действию. Так код становится короче и понятнее.", "Что повторяется в твоем коде?", "🧰", "teach", "func greet(name string) {\n    fmt.Println(\"Привет,\", name)\n}\n\ngreet(\"Гоша\")\ngreet(\"Тоша\")", "$ go run .\nПривет, Гоша\nПривет, Тоша", "Функции убирают повторение и показывают намерение."],
           ["Параметры", "Параметры — это входные данные функции. Гоша передает имя и число шагов.", "Сколько параметров у функции?", "🎒", "code", "func report(name string, steps int) {\n    fmt.Println(name, steps)\n}", "$ go run .\nГоша 900", "Параметр имеет имя и тип."],
           ["Возвращаем результат", "Функция может вернуть значение. Например, удвоить число шагов.", "Где пишется тип результата?", "↩️", "jump", "func double(steps int) int {\n    return steps * 2\n}", "$ go run .\n1800", "Тип результата пишется после списка параметров."],
           ["Несколько результатов", "Go-функции часто возвращают результат и ошибку. Это честный способ говорить о проблемах.", "Почему error лучше паники?", "🧯", "think", "func findFood(ok bool) (string, error) {\n    if !ok { return \"\", errors.New(\"пусто\") }\n    return \"желудь\", nil\n}", "$ go run .\nжелудь", "Ошибку нужно проверять рядом с вызовом."],
@@ -929,10 +1125,10 @@
         name: "Серия 3: коллекции и мини-проект",
         summary: "Гоша собирает данные в slices, maps и structs, а потом делает маленький CLI-трекер.",
         scenes: [
-          ["Повторяем с for", "В Go один главный цикл — for. Он умеет работать как счетчик и как while.", "Почему одного for хватает?", "🔁", "jump", "for i := 1; i <= 3; i++ {\n    fmt.Println(\"шаг\", i)\n}", "$ go run .\nшаг 1\nшаг 2\nшаг 3", "Цикл повторяет действия без копирования строк."],
+          ["Повторяем с for", "В Go один главный цикл — for. Он умеет работать как счетчик и как while.", "Почему одного for хватает?", "🔁", "jump", "for i := 1; i <= 3; i++ { // счётчик\n    fmt.Println(\"шаг\", i)\n}\n\nn := 0\nfor n < 2 { // как while\n    n++\n}\nfmt.Println(\"n =\", n)", "$ go run .\nшаг 1\nшаг 2\nшаг 3\nn = 2", "Один for заменяет for, while и do-while."],
           ["range по списку", "range помогает пройти по каждому элементу с индексом и значением.", "Что такое индекс?", "📋", "code", "steps := []int{400, 900, 1200}\nfor i, value := range steps {\n    fmt.Println(i, value)\n}", "$ go run .\n0 400\n1 900\n2 1200", "Индекс показывает позицию элемента."],
-          ["Slices растут", "Slice — гибкий список. append добавляет новые значения.", "append меняет исходный slice?", "🧺", "teach", "foods := []string{\"орех\"}\nfoods = append(foods, \"ягода\")\nfmt.Println(foods)", "$ go run .\n[орех ягода]", "Результат append обычно присваивают обратно."],
-          ["Maps: быстрый справочник", "Map хранит пары ключ-значение. Гоша считает запасы по названию.", "Какой тип у ключа?", "🗺️", "think", "stock := map[string]int{\n    \"орех\": 5,\n    \"ягода\": 8,\n}\nfmt.Println(stock[\"орех\"])", "$ go run .\n5", "Ключ должен быть сравнимым типом."],
+          ["Slices растут", "Slice — гибкий список. append добавляет новые значения.", "append меняет исходный slice?", "🧺", "teach", "foods := []string{\"орех\"}\nfoods = append(foods, \"ягода\", \"шишка\")\nfmt.Println(foods)\nfmt.Println(\"всего:\", len(foods))\nfmt.Println(\"первый:\", foods[0])", "$ go run .\n[орех ягода шишка]\nвсего: 3\nпервый: орех", "Результат append обычно присваивают обратно."],
+          ["Maps: быстрый справочник", "Map хранит пары ключ-значение. Гоша считает запасы по названию.", "Какой тип у ключа?", "🗺️", "think", "stock := map[string]int{\n    \"орех\": 5,\n    \"ягода\": 8,\n}\nstock[\"шишка\"] = 3\ndelete(stock, \"ягода\")\nfmt.Println(stock[\"орех\"], len(stock))", "$ go run .\n5 2", "Ключ должен быть сравнимым типом."],
           ["Проверка наличия ключа", "Map возвращает второе значение ok, чтобы понять, был ли ключ найден.", "Почему ноль не всегда значит нет?", "🔎", "code", "count, ok := stock[\"шишка\"]\nif !ok {\n    fmt.Println(\"нет в запасах\")\n}\nfmt.Println(count)", "$ go run .\nнет в запасах\n0", "ok отличает отсутствующий ключ от нулевого значения."],
           ["Struct: свой тип данных", "Struct объединяет связанные поля. Гоша описывает тренировку одной сущностью.", "Какие поля нужны тренировке?", "🧱", "teach", "type Workout struct {\n    Kind string\n    Steps int\n}\n\nw := Workout{Kind: \"walk\", Steps: 1200}", "$ go run .\n{walk 1200}", "Struct делает данные выразительными."],
           ["Метод для struct", "Метод — функция, привязанная к типу. Гоша учит Workout говорить отчет.", "Что такое receiver?", "🎙️", "code", "func (w Workout) Report() string {\n    return fmt.Sprintf(\"%s: %d\", w.Kind, w.Steps)\n}", "$ go run .\nwalk: 1200", "Receiver стоит перед именем метода."],
@@ -941,6 +1137,38 @@
           ["Мини CLI-трекер", "Гоша собирает ввод, парсит шаги и выводит отчет пользователю.", "Какая ошибка возможна при вводе?", "⌨️", "code", "input := \"1200,30m\"\nsteps, duration, err := parse(input)\nif err != nil { return }\nfmt.Println(steps, duration)", "$ go run .\n1200 30m0s", "CLI должен понятно реагировать на неверные данные."],
           ["Рефакторинг без страха", "Когда тесты есть, Гоша может улучшать код маленькими шагами.", "Что меняем первым?", "🧹", "think", "// было: длинная main\n// стало: parse, calculate, format\n// каждая функция делает одну вещь", "$ go test ./...\nok", "Маленькие функции проще читать и проверять."],
           ["Финал курса", "Три серии закончены: Гоша знает базу Go и готов писать аккуратные программы.", "Какой проект сделаешь дальше?", "🚀", "jump", "func main() {\n    fmt.Println(\"Гоша выбирает Go!\")\n}", "$ go run .\nГоша выбирает Go!", "Практика превращает синтаксис в навык."]
+        ]
+      },
+      {
+        name: "Серия 4: методы, интерфейсы и композиция",
+        summary: "Гоша даёт типам поведение и связывает их через интерфейсы вместо наследования.",
+        scenes: [
+          ["Методы у типов", "Метод — это функция с получателем (receiver). Гоша учит тип Dog лаять.", "Где стоит receiver?", "🐶", "teach", "type Dog struct{ Name string }\n\nfunc (d Dog) Bark() string {\n    return d.Name + \": гав!\"\n}\n\nfmt.Println(Dog{\"Рекс\"}.Bark())", "$ go run .\nРекс: гав!", "Receiver пишется перед именем метода."],
+          ["Получатель по указателю", "Чтобы менять поля, бери получатель по указателю *T.", "Когда нужен *T?", "🔧", "code", "func (d *Dog) Rename(n string) {\n    d.Name = n\n}\n\nd := Dog{\"Рекс\"}\nd.Rename(\"Барбос\")\nfmt.Println(d.Name)", "$ go run .\nБарбос", "Метод на *T умеет изменять структуру."],
+          ["Интерфейс — это поведение", "Интерфейс описывает, что тип умеет, а не из чего состоит.", "Что хранит интерфейс?", "🧩", "teach", "type Speaker interface {\n    Say() string\n}\n\ntype Cat struct{}\nfunc (Cat) Say() string { return \"мяу\" }", "$ go run .", "Тип реализует интерфейс неявно — без implements."],
+          ["Полиморфизм", "Одна функция работает с любым Speaker.", "Зачем это удобно?", "🎭", "code", "type Duck struct{}\nfunc (Duck) Say() string { return \"кря\" }\n\nfunc announce(s Speaker) {\n    fmt.Println(s.Say())\n}\n\nannounce(Cat{})\nannounce(Duck{})", "$ go run .\nмяу\nкря", "Интерфейсы дают гибкость без наследования."],
+          ["Пустой интерфейс и any", "any (interface{}) принимает любое значение.", "Чем опасен any?", "📦", "think", "func describe(v any) {\n    fmt.Printf(\"%v — %T\\n\", v, v)\n}\n\ndescribe(42)\ndescribe(\"go\")", "$ go run .\n42 — int\ngo — string", "any теряет статическую типизацию — применяй точечно."],
+          ["Type switch", "Динамический тип проверяют через switch v := x.(type).", "Что вернёт ветка?", "🔀", "code", "switch v := x.(type) {\ncase int:\n    fmt.Println(\"число\", v)\ncase string:\n    fmt.Println(\"строка\", v)\n}", "$ go run .\nчисло 7", "Type switch безопасно разбирает значение any."],
+          ["Stringer", "Реализуй String(), и fmt печатает тип красиво.", "Какой интерфейс зовёт String()?", "🖨️", "teach", "type Point struct{ X, Y int }\n\nfunc (p Point) String() string {\n    return fmt.Sprintf(\"(%d, %d)\", p.X, p.Y)\n}\n\nfmt.Println(Point{1, 2})", "$ go run .\n(1, 2)", "fmt использует интерфейс fmt.Stringer."],
+          ["Композиция структур", "Встрой один тип в другой — методы станут доступны.", "Что такое встраивание?", "🧱", "teach", "type Animal struct{ Name string }\nfunc (a Animal) Hello() string { return \"я \" + a.Name }\n\ntype Robot struct{ Animal }\n\nfmt.Println(Robot{Animal{\"R2\"}}.Hello())", "$ go run .\nя R2", "Встраивание заменяет наследование композицией."],
+          ["Ошибки как значения", "Создавай ошибки errors.New и оборачивай через fmt.Errorf с %w.", "Зачем %w?", "🧯", "code", "err := fmt.Errorf(\"шаг 2: %w\", errors.New(\"пусто\"))\nfmt.Println(err)\nfmt.Println(errors.Unwrap(err))", "$ go run .\nшаг 2: пусто\nпусто", "%w оборачивает ошибку для errors.Is и errors.As."],
+          ["Итог серии 4", "Гоша освоил методы, интерфейсы, type switch и композицию.", "Композиция или наследование?", "🏆", "jump", "var s Speaker = Cat{}\nfmt.Println(s.Say())", "$ go run .\nмяу", "Интерфейсы и композиция — основа дизайна в Go."]
+        ]
+      },
+      {
+        name: "Серия 5: горутины, каналы и стандартная библиотека",
+        summary: "Гоша запускает задачи параллельно, общается через каналы и берёт готовое из stdlib.",
+        scenes: [
+          ["Горутина", "Ключевое слово go запускает функцию параллельно.", "Что делает go перед вызовом?", "🚀", "jump", "go fmt.Println(\"привет из горутины\")\ntime.Sleep(10 * time.Millisecond)", "$ go run .\nпривет из горутины", "Горутина — очень лёгкий поток выполнения."],
+          ["Канал", "Канал передаёт значения между горутинами.", "Что делает оператор <- ?", "🔌", "code", "ch := make(chan int)\ngo func() { ch <- 42 }()\nfmt.Println(<-ch)", "$ go run .\n42", "Канал синхронизирует обмен данными."],
+          ["Закрытие и range", "Закрытый канал удобно читать через range.", "Кто закрывает канал?", "📪", "teach", "ch := make(chan int, 2)\nch <- 1\nch <- 2\nclose(ch)\nfor v := range ch {\n    fmt.Println(v)\n}", "$ go run .\n1\n2", "Канал закрывает отправитель, не получатель."],
+          ["select", "select ждёт сразу несколько каналов.", "Что если готовы оба?", "🔀", "think", "select {\ncase v := <-a:\n    fmt.Println(\"a\", v)\ncase v := <-b:\n    fmt.Println(\"b\", v)\n}", "$ go run .\na 1", "select выбирает готовый случай случайно."],
+          ["WaitGroup", "sync.WaitGroup ждёт завершения группы горутин.", "Зачем Add, Done и Wait?", "🧮", "code", "var wg sync.WaitGroup\nfor i := 0; i < 3; i++ {\n    wg.Add(1)\n    go func(n int) { defer wg.Done(); fmt.Println(n) }(i)\n}\nwg.Wait()", "$ go run .\n0\n1\n2", "WaitGroup синхронизирует завершение горутин."],
+          ["Mutex", "sync.Mutex защищает общие данные от гонок.", "Что делают Lock и Unlock?", "🔒", "teach", "var mu sync.Mutex\nmu.Lock()\ncounter++\nmu.Unlock()", "$ go run .", "Mutex предотвращает гонки данных (data race)."],
+          ["Контекст и таймаут", "context отменяет долгие операции по времени.", "Зачем нужен context?", "⏱️", "code", "ctx, cancel := context.WithTimeout(context.Background(), time.Second)\ndefer cancel()\n<-ctx.Done()\nfmt.Println(ctx.Err())", "$ go run .\ncontext deadline exceeded", "context управляет временем жизни задач."],
+          ["Стандартная библиотека", "strings, strconv, time, encoding/json — всё уже есть.", "Где искать готовое?", "📚", "think", "fmt.Println(strings.ToUpper(\"go\"))\nfmt.Println(strings.Split(\"a,b,c\", \",\"))\nn, _ := strconv.Atoi(\"42\")\nfmt.Println(n + 1)", "$ go run .\nGO\n[a b c]\n43", "Сначала ищи решение в стандартной библиотеке."],
+          ["JSON", "Пакет encoding/json кодирует и декодирует структуры.", "Что делают теги json?", "🧾", "code", "type User struct {\n    Name string `json:\"name\"`\n}\n\nb, _ := json.Marshal(User{\"Гоша\"})\nfmt.Println(string(b))", "$ go run .\n{\"name\":\"Гоша\"}", "Теги управляют именами полей в JSON."],
+          ["Итог курса", "Пять серий пройдено: синтаксис, логика, коллекции, интерфейсы и конкурентность.", "Какой проект напишешь на Go?", "🌟", "jump", "func main() {\n    fmt.Println(\"Гоша готов к реальным проектам!\")\n}", "$ go run .\nГоша готов к реальным проектам!", "Практика и stdlib превращают знания в навык."]
         ]
       }
     ];
@@ -1175,16 +1403,16 @@
     }
 
     function updateClock() {
+      const total = episodeDuration();
       const elapsed = playing ? Date.now() - startedAt : pausedAt;
-      const clamped = Math.min(elapsed, EPISODE_MS);
-      const left = Math.max(0, EPISODE_MS - clamped);
+      const clamped = Math.min(elapsed, total);
+      const left = Math.max(0, total - clamped);
       const minutes = String(Math.floor(left / 60000)).padStart(2, "0");
       const seconds = String(Math.floor((left % 60000) / 1000)).padStart(2, "0");
       el.timeLeft.textContent = `${minutes}:${seconds}`;
-      el.progressBar.style.width = `${(clamped / EPISODE_MS) * 100}%`;
+      el.progressBar.style.width = `${(clamped / total) * 100}%`;
 
-      const sceneDuration = EPISODE_MS / episodes[episodeIndex].scenes.length;
-      const calculatedScene = Math.min(episodes[episodeIndex].scenes.length - 1, Math.floor(clamped / sceneDuration));
+      const calculatedScene = Math.min(episodes[episodeIndex].scenes.length - 1, Math.floor(clamped / SCENE_MS));
       if (calculatedScene !== sceneIndex) {
         sceneIndex = calculatedScene;
         render();
@@ -1211,7 +1439,7 @@
       window.clearInterval(ticker);
       ticker = window.setInterval(updateClock, 500);
       window.clearTimeout(timer);
-      timer = window.setTimeout(finish, EPISODE_MS + 300);
+      timer = window.setTimeout(finish, episodeDuration() + 300);
     }
 
     function pause() {
@@ -1229,7 +1457,7 @@
 
     function finish() {
       playing = false;
-      pausedAt = EPISODE_MS;
+      pausedAt = episodeDuration();
       window.clearInterval(ticker);
       window.clearTimeout(timer);
       el.status.textContent = "Серия завершена";
@@ -1242,7 +1470,7 @@
     function nextScene() {
       const episode = episodes[episodeIndex];
       sceneIndex = (sceneIndex + 1) % episode.scenes.length;
-      pausedAt = sceneIndex * (EPISODE_MS / episode.scenes.length);
+      pausedAt = sceneIndex * SCENE_MS;
       if (playing) startedAt = Date.now() - pausedAt;
       render();
       playSound(sceneIndex);
