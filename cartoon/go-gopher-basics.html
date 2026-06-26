@@ -130,38 +130,6 @@
       font-weight: 1000;
     }
 
-    .ad-ticker-line.casino {
-      border-top: 0;
-      border-radius: 12px;
-      background: linear-gradient(90deg, #ff0066, #ff9900, #ffee00, #00e5ff, #cc00ff, #00ff8c, #ff0066);
-      background-size: 360% 100%;
-      box-shadow: 0 0 16px rgba(255, 0, 200, 0.6), inset 0 0 14px rgba(255, 255, 255, 0.4);
-      animation: casinoBg 3.2s linear infinite, casinoFlash 0.45s steps(2, end) infinite;
-    }
-
-    .ad-ticker-line.casino .ad-ticker-track {
-      font-family: Impact, "Arial Black", "Haettenschweiler", sans-serif;
-      font-weight: 1000;
-      font-style: italic;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #fff;
-      animation: casinoText 0.7s ease-in-out infinite alternate;
-    }
-
-    .ad-ticker-line.casino .ad-label {
-      color: #d6008a;
-      background: #fff;
-      box-shadow: 0 0 12px #fff, 0 0 20px #ffee00;
-      animation: casinoLabel 0.4s steps(2, end) infinite;
-    }
-
-    .ad-ticker-line.casino .ad-sep {
-      color: #fff;
-      text-shadow: 0 0 8px #fff, 0 0 16px #00e5ff, 0 0 22px #ff00d4;
-      animation: casinoSpin 0.9s linear infinite;
-    }
-
     .outro {
       display: flex;
       gap: 22px;
@@ -851,16 +819,6 @@
       to { transform: translateX(calc(100vw + 620px)); }
     }
 
-    @keyframes casinoBg { from { background-position: 0% 50%; } to { background-position: 360% 50%; } }
-    @keyframes casinoFlash { 0% { filter: brightness(1.1) saturate(1.4); } 100% { filter: brightness(1.65) saturate(2.1); } }
-    @keyframes casinoText {
-      0% { color: #fff; text-shadow: 0 0 6px #fff, 0 0 12px #ffee00, 0 0 22px #ff00d4; }
-      50% { color: #fff7b0; text-shadow: 0 0 9px #fff, 0 0 18px #00e5ff, 0 0 28px #ff00d4; }
-      100% { color: #fff; text-shadow: 0 0 11px #fff, 0 0 20px #ff00d4, 0 0 32px #00e5ff; }
-    }
-    @keyframes casinoLabel { 0% { transform: scale(1); box-shadow: 0 0 10px #fff, 0 0 16px #ffee00; } 100% { transform: scale(1.08); box-shadow: 0 0 18px #fff, 0 0 28px #00e5ff; } }
-    @keyframes casinoSpin { to { transform: rotate(360deg); } }
-
     @keyframes tickerScroll {
       from { transform: translateX(0); }
       to { transform: translateX(-50%); }
@@ -1073,7 +1031,7 @@
           </div>
         </div>
       </div>
-      <div class="ad-ticker-line casino">
+      <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
             <span class="ad-label">Правило Go</span>
@@ -1109,7 +1067,7 @@
           </div>
         </div>
       </div>
-      <div class="ad-ticker-line casino">
+      <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
             <span class="ad-label">Правило Go</span>
@@ -1145,7 +1103,7 @@
           </div>
         </div>
       </div>
-      <div class="ad-ticker-line casino">
+      <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
             <span class="ad-label">Правило Go</span>
@@ -1181,7 +1139,7 @@
           </div>
         </div>
       </div>
-      <div class="ad-ticker-line casino">
+      <div class="ad-ticker-line">
         <div class="ad-ticker-marquee">
           <div class="ad-ticker-track">
             <span class="ad-label">Правило Go</span>
