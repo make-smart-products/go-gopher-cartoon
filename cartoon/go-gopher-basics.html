@@ -251,7 +251,7 @@
 
     .stage {
       position: relative;
-      min-height: 660px;
+      min-height: 500px;
       overflow: hidden;
       border: 8px solid #fff;
       border-radius: 36px;
@@ -409,10 +409,11 @@
 
     .chalkboard {
       position: absolute;
-      top: 255px;
+      top: 210px;
+      left: 34px;
       right: 34px;
       z-index: 4;
-      width: min(480px, calc(100% - 68px));
+      width: auto;
       min-height: 250px;
       padding: 22px;
       border: 12px solid #8b5c2e;
@@ -879,31 +880,13 @@
 
     @media (max-width: 920px) {
       .stage {
-        min-height: 820px;
+        min-height: 560px;
       }
 
       .chalkboard {
-        top: 438px;
+        top: 280px;
         left: 30px;
-        right: auto;
-      }
-
-      .gopher {
-        left: 66px;
-      }
-
-      .gopher-shadow {
-        left: 90px;
-      }
-
-      .speech-bubble {
-        left: 235px;
-        bottom: 286px;
-      }
-
-      .prop {
-        right: 55px;
-        bottom: 252px;
+        right: 30px;
       }
 
       .tips {
@@ -928,7 +911,7 @@
       }
 
       .stage {
-        min-height: 900px;
+        min-height: 620px;
         border-width: 5px;
         border-radius: 24px;
       }
@@ -936,7 +919,8 @@
       .scene-card,
       .chalkboard {
         left: 16px;
-        width: calc(100% - 32px);
+        right: 16px;
+        width: auto;
       }
 
       .scene-card {
@@ -944,36 +928,8 @@
       }
 
       .chalkboard {
-        top: 474px;
+        top: 280px;
         padding: 16px;
-      }
-
-      .gopher {
-        left: 34px;
-        bottom: 96px;
-        scale: 0.58;
-        transform-origin: left bottom;
-      }
-
-      .gopher-shadow {
-        left: 38px;
-        bottom: 88px;
-        width: 120px;
-        height: 26px;
-      }
-
-      .speech-bubble {
-        left: 148px;
-        right: 18px;
-        bottom: 318px;
-      }
-
-      .prop {
-        right: 26px;
-        bottom: 198px;
-        width: 82px;
-        height: 82px;
-        font-size: 2.25rem;
       }
 
       .controls {
@@ -1176,34 +1132,6 @@
 <span class="code-keyword">package</span> main</pre>
       </section>
 
-      <div class="speech-bubble" id="bubble">Готов? Нажимай старт!</div>
-      <div class="prop" id="prop" aria-hidden="true">▶</div>
-
-      <div class="gopher-shadow" aria-hidden="true"></div>
-      <div class="gopher" id="gopher" aria-hidden="true">
-        <div class="tail"></div>
-        <div class="body">
-          <div class="belly"></div>
-        </div>
-        <div class="head">
-          <div class="ear left"></div>
-          <div class="ear right"></div>
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-          <div class="cheek left"></div>
-          <div class="cheek right"></div>
-          <div class="nose"></div>
-          <div class="mouth"></div>
-          <div class="tooth one"></div>
-          <div class="tooth two"></div>
-        </div>
-        <div class="paw left"></div>
-        <div class="paw right"></div>
-        <div class="foot left"></div>
-        <div class="foot right"></div>
-        <div class="go-badge">Go</div>
-      </div>
-
       <div class="ground" aria-hidden="true">
         <div class="grass-blade"></div>
         <div class="grass-blade"></div>
@@ -1374,9 +1302,6 @@ println(double(4)) <span class="code-comment">// 8</span>`,
       subtitle: document.querySelector("#subtitle"),
       boardTitle: document.querySelector("#boardTitle"),
       codeBlock: document.querySelector("#codeBlock"),
-      bubble: document.querySelector("#bubble"),
-      prop: document.querySelector("#prop"),
-      gopher: document.querySelector("#gopher"),
       playButton: document.querySelector("#playButton"),
       pauseButton: document.querySelector("#pauseButton"),
       nextButton: document.querySelector("#nextButton"),
@@ -1495,14 +1420,8 @@ println(double(4)) <span class="code-comment">// 8</span>`,
       elements.subtitle.textContent = scene.subtitle;
       elements.boardTitle.textContent = scene.boardTitle;
       elements.codeBlock.innerHTML = scene.code;
-      elements.bubble.textContent = scene.bubble;
-      elements.prop.textContent = scene.prop;
       elements.progressText.textContent = playing ? "Мультфильм идет" : "Пауза";
       elements.progressBar.style.width = `${((index + 1) / scenes.length) * 100}%`;
-
-      elements.gopher.classList.remove("teach", "jump", "think");
-      void elements.gopher.offsetWidth;
-      elements.gopher.classList.add(scene.motion);
     }
 
     function scheduleNext() {

@@ -171,7 +171,7 @@
 
     .stage {
       position: relative;
-      min-height: 720px;
+      min-height: 560px;
       overflow: hidden;
       border: 9px solid #fff;
       border-radius: 38px;
@@ -264,10 +264,11 @@
     .chalkboard {
       position: absolute;
       z-index: 4;
-      top: 235px;
-      right: 30px;
-      width: min(560px, calc(100% - 60px));
-      min-height: 340px;
+      top: 220px;
+      left: 28px;
+      right: 28px;
+      width: auto;
+      min-height: 300px;
       padding: 21px;
       border: 13px solid var(--wood);
       border-radius: 22px;
@@ -763,23 +764,17 @@
 
     @media (max-width: 980px) {
       header { grid-template-columns: 1fr; }
-      .stage { min-height: 940px; }
-      .chalkboard { top: 408px; left: 28px; right: auto; }
-      .bubble { left: 250px; bottom: 318px; }
-      .prop { right: 56px; bottom: 260px; }
+      .stage { min-height: 620px; }
+      .chalkboard { top: 300px; left: 28px; right: 28px; }
       .series-map { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 640px) {
-      .stage { min-height: 1010px; border-radius: 26px; border-width: 5px; }
+      .stage { min-height: 680px; border-radius: 26px; border-width: 5px; }
       .ad-ticker-track { gap: 14px; padding: 3px 10px 3px 0; font-size: 0.85rem; }
       .ad-label { margin-left: 12px; }
-      .lesson-card, .chalkboard { left: 15px; width: calc(100% - 30px); }
-      .chalkboard { top: 455px; }
-      .gopher { left: 40px; scale: 0.56; transform-origin: left bottom; }
-      .gopher-shadow { left: 46px; bottom: 84px; width: 116px; height: 26px; }
-      .bubble { left: 136px; right: 16px; bottom: 360px; }
-      .prop { width: 84px; height: 84px; right: 24px; bottom: 235px; font-size: 2.2rem; }
+      .lesson-card, .chalkboard { left: 15px; right: 15px; width: auto; }
+      .chalkboard { top: 290px; }
       .controls { grid-template-columns: 1fr; }
       .buttons { justify-content: start; }
     }
@@ -964,34 +959,6 @@
         <div class="terminal" id="terminal">$ go run .</div>
       </section>
 
-      <div class="bubble" id="bubble">Готов к серии?</div>
-      <div class="prop" id="prop" aria-hidden="true">🎬</div>
-
-      <div class="gopher-shadow" id="gopherShadow" aria-hidden="true"></div>
-      <div class="gopher teach" id="gopher" aria-hidden="true">
-        <div class="tail"></div>
-        <div class="body"><div class="belly"></div></div>
-        <div class="head">
-          <div class="cap"></div>
-          <div class="ear left"></div>
-          <div class="ear right"></div>
-          <div class="eye left"></div>
-          <div class="eye right"></div>
-          <div class="cheek left"></div>
-          <div class="cheek right"></div>
-          <div class="nose"></div>
-          <div class="mouth"></div>
-          <div class="tooth one"></div>
-          <div class="tooth two"></div>
-        </div>
-        <div class="paw left"></div>
-        <div class="paw right"></div>
-        <div class="foot left"></div>
-        <div class="foot right"></div>
-      </div>
-
-      <div class="laptop" aria-hidden="true"></div>
-
       <aside class="quiz">
         <strong id="quizTitle">Вопрос Гоши</strong>
         <span id="quizText">Что делает функция main?</span>
@@ -1141,9 +1108,6 @@
       sceneCounter: document.querySelector("#sceneCounter"),
       codeBlock: document.querySelector("#codeBlock"),
       terminal: document.querySelector("#terminal"),
-      bubble: document.querySelector("#bubble"),
-      prop: document.querySelector("#prop"),
-      gopher: document.querySelector("#gopher"),
       quizTitle: document.querySelector("#quizTitle"),
       quizText: document.querySelector("#quizText"),
       status: document.querySelector("#status"),
@@ -1350,13 +1314,10 @@
       el.sceneText.textContent = scene[1];
       el.quizTitle.textContent = "Вопрос Гоши";
       el.quizText.textContent = scene[2];
-      el.prop.textContent = scene[3];
-      el.gopher.className = `gopher ${scene[4]}`;
       el.boardTitle.textContent = scene[7];
       el.sceneCounter.textContent = `${sceneIndex + 1} / ${episode.scenes.length}`;
       el.codeBlock.innerHTML = colorize(scene[5]);
       el.terminal.textContent = scene[6];
-      el.bubble.textContent = scene[8];
       el.episodeSelect.value = String(episodeIndex);
       updateClock();
     }
